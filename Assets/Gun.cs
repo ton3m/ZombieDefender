@@ -4,8 +4,8 @@ namespace Code
 {
     public class Gun
     {
-        [SerializeField] GameObject _bullet;
-        [SerializeField] Transform _shootPoint;
+        [SerializeField] private GameObject _bullet;
+        [SerializeField] private Transform _shootPoint;
 
         private Fabric _fabric;
     
@@ -17,7 +17,25 @@ namespace Code
         public void Shoot()
         {
             var bulletObj = _fabric.Create(_bullet, Transform.position);
-            var bullet = bulletObj.Get                         
+            var bullet = bulletObj.GetComponent<Bullet>();                         
+        }
+    }
+
+    public class Bullet: MonoBehaviour
+    {
+        [SerializeField] private float _velocity;
+        [SerializeField] private Vector3 _velocity;
+        [SerializeField] private float _damage;
+
+        public void Initialize(float velocity, float damage)
+        {
+            _velocity = velocity;
+            _damage = damage;
+        }
+
+        private void Update()
+        {
+            transform.position += 
         }
     }
 
