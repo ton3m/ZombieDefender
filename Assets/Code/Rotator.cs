@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rotator : MonoBehaviour, IInitializable
+public class Rotator : MonoBehaviour
 {
     public void Initialize()
     {
