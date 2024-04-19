@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Code
+namespace Code.Movement
 {
     public class Mover : MonoBehaviour
     {
@@ -8,15 +8,14 @@ namespace Code
 
         private Vector2 _velocity;
         private Vector2 _direction;
-
-        private void Update()
+        
+        public void Move(Vector2 direction)
         {
+            _direction = direction.normalized;
             _velocity = _direction * _speed;
+            
             ChangePosition();
         }
-
-        public void Move(Vector2 direction) => 
-            _direction = direction.normalized;
 
         private void ChangePosition()
         {

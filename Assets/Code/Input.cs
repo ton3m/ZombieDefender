@@ -6,6 +6,7 @@ namespace Code
     public class Input
     {
         public Vector2 Axis { get; private set; }
+        public Vector2 MousePosition { get; private set; }
 
         public Input(IUpdateable updateable) =>
             updateable.Updating += Update;
@@ -17,7 +18,12 @@ namespace Code
                 x = UnityEngine.Input.GetAxis("Horizontal"),
                 y = UnityEngine.Input.GetAxis("Vertical")
             };
+
+            MousePosition = UnityEngine.Input.mousePosition;
         }
+        
+        public Vector2 GetMouseWorldPosition(Camera cam) => 
+            cam.ScreenToWorldPoint(MousePosition);
 
         public bool KeyPressed(KeyCode key)
         {

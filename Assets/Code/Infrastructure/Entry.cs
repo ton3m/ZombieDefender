@@ -10,6 +10,7 @@ namespace Code.Infrastructure
         
         [SerializeField] private Player _player;
         [SerializeField] private Gun _gun;
+        [FormerlySerializedAs("cursorRotator")] [FormerlySerializedAs("_rotator")] [SerializeField] private RotatorToCursor rotatorToCursor;
 
         private Input _input;
         private Fabric _fabric;
@@ -21,6 +22,7 @@ namespace Code.Infrastructure
             
             _player.Initialize(_input);
             _gun.Initialize(_fabric);
+            rotatorToCursor.Initialize(_input, Camera.main);
         }
 
         private void Update() => Updating?.Invoke();

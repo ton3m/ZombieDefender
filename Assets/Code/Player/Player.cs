@@ -1,5 +1,6 @@
 ﻿using System;
 using Code.Infrastructure;
+using Code.Movement;
 using UnityEngine;
 
 namespace Code
@@ -21,7 +22,7 @@ namespace Code
         
         private void Update()
         {
-            if (_input.KeyPressed(KeyCode.Mouse0)) 
+            if (_input.KeyPressed(KeyCode.Space)) 
                 _shooter.Shoot();
             
             _mover.Move(_input.Axis);
